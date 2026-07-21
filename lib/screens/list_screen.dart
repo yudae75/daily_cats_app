@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../models/cat.dart';
+import 'detail_screen.dart';
+//import 'package:daily_cats_app/screens/uploadScreen.dart';
+import 'uploadScreen.dart';
 
 final List<Cat> cats = [
   Cat(
@@ -64,7 +67,17 @@ class _ListScreenState extends State<ListScreen> {
       appBar: AppBar(
         title: const Text('Daily Cats'),
         actions: [
-          IconButton(icon: const Icon(Icons.camera_alt), onPressed: () {}),
+          IconButton(
+            icon: const Icon(Icons.camera_alt),
+            onPressed: () {
+              //...
+              showDialog(
+                context: context,
+                builder: (_) => const UploadScreen(),
+              );
+              //...
+            },
+          ),
         ],
       ),
 
@@ -78,7 +91,15 @@ class _ListScreenState extends State<ListScreen> {
         ),
         itemCount: cats.length,
         itemBuilder: (_, int index) => GestureDetector(
-          onTap: () {},
+          onTap: () {
+            //...
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => DetailScreen(cat: cats[index]),
+              ),
+            );
+            //...
+          },
           child: Image.asset(cats[index].link, fit: BoxFit.cover),
         ),
       ),

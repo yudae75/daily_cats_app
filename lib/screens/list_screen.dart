@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/cat.dart';
 import 'detail_screen.dart';
 //import 'package:daily_cats_app/screens/uploadScreen.dart';
-import 'uploadScreen.dart';
+import 'upload_screen.dart';
 
 final List<Cat> cats = [
   Cat(
